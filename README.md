@@ -21,6 +21,7 @@ For example:
 ```bash
 npx skills@latest add Biaoo/skills --skill adaptive-formalization
 npx skills@latest add Biaoo/skills --skill ai-friendly-cli-design
+npx skills@latest add Biaoo/skills --skill agent-skill-design
 ```
 
 List available skills before installing:
@@ -42,6 +43,10 @@ This repository currently contains the skills listed below.
 
 - [adaptive-formalization](./skills/engineering/adaptive-formalization/SKILL.md) - choose the right formalization level for AI-native entities, schemas, artifacts, and agent outputs.
 - [ai-friendly-cli-design](./skills/engineering/ai-friendly-cli-design/SKILL.md) - design CLI commands that agents can inspect, parse, and continue from safely.
+
+### Personal
+
+- [agent-skill-design](./skills/personal/agent-skill-design/SKILL.md) - design agent skills as progressive behavioral interfaces.
 
 ## Maintenance
 
@@ -79,6 +84,12 @@ Link skills into a local agent skills directory:
 ```bash
 scripts/link-skills.sh --target codex
 scripts/link-skills.sh --target claude
+```
+
+Link only one bucket:
+
+```bash
+scripts/link-skills.sh --target codex --bucket engineering
 ```
 
 Preview link changes without writing files:
