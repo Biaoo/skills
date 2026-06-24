@@ -41,4 +41,5 @@ Do not add `README.md`, changelogs, or installation guides inside individual ski
 - Prefer concise skill instructions over broad background material.
 - Move long reference material out of `SKILL.md` into `references/`.
 - Do not add install, sync, release, or package-management tooling until requested.
+- Keep repository scripts conservative: include help text, support dry-run when writing outside the repo, and do not overwrite non-symlink user files unless explicitly forced.
 - If the correct bucket is unclear, ask before creating the skill.

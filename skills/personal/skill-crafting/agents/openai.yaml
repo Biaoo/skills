@@ -1,7 +1,0 @@
-interface:
-  display_name: "Skill Crafting"
-  short_description: "Craft high-quality agent skills"
-  default_prompt: "Use $skill-crafting to create, rewrite, extract, or diagnose an agent skill."
-
-policy:
-  allow_implicit_invocation: true

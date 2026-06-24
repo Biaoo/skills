@@ -2,4 +2,4 @@
 
 Skills tied to personal workflows, local tools, private context, or preferences.
 
-- [skill-crafting](./skill-crafting/SKILL.md) - craft, rewrite, extract, and diagnose high-quality agent skills.
+- [agent-skill-design](./agent-skill-design/SKILL.md) - design agent skills as progressive behavioral interfaces.

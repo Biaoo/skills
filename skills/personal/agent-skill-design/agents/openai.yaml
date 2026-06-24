@@ -1,0 +1,7 @@
+interface:
+  display_name: "Agent Skill Design"
+  short_description: "Design skills as behavioral interfaces"
+  default_prompt: "Use $agent-skill-design to design, diagnose, or rewrite an agent skill."
+
+policy:
+  allow_implicit_invocation: true

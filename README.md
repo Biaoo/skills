@@ -65,3 +65,24 @@ skills/<bucket>/<skill-name>/
 ```
 
 After adding a stable skill, update this README and the relevant bucket README.
+
+## Local Scripts
+
+List skills in this repository:
+
+```bash
+scripts/list-skills.sh --format table
+```
+
+Link skills into a local agent skills directory:
+
+```bash
+scripts/link-skills.sh --target codex
+scripts/link-skills.sh --target claude
+```
+
+Preview link changes without writing files:
+
+```bash
+scripts/link-skills.sh --target codex --dry-run
+```
