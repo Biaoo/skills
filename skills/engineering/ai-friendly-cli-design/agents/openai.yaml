@@ -1,0 +1,7 @@
+interface:
+  display_name: "AI-Friendly CLI Design"
+  short_description: "Design CLIs that agents can safely inspect and continue from"
+  default_prompt: "Use $ai-friendly-cli-design to design or review an Agent-facing CLI command."
+
+policy:
+  allow_implicit_invocation: true

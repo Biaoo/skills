@@ -1,0 +1,7 @@
+interface:
+  display_name: "Adaptive Formalization"
+  short_description: "Choose formalization levels for AI-native entities"
+  default_prompt: "Use $adaptive-formalization to decide how formal a new Agent-facing entity or schema should be."
+
+policy:
+  allow_implicit_invocation: true
