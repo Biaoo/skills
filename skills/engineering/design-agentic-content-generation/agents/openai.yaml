@@ -1,0 +1,7 @@
+interface:
+  display_name: "Design Agentic Content Generation"
+  short_description: "Navigate Agentic content project design decisions"
+  default_prompt: "Use $design-agentic-content-generation to navigate the live design uncertainties, apply only decision-relevant methods, preserve continuation context, and stop before implementation or production authorization."
+
+policy:
+  allow_implicit_invocation: true

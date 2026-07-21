@@ -21,6 +21,8 @@ For example:
 ```bash
 npx skills@latest add Biaoo/skills --skill adaptive-formalization
 npx skills@latest add Biaoo/skills --skill ai-friendly-cli-design
+npx skills@latest add Biaoo/skills --skill context-efficiency-evaluation
+npx skills@latest add Biaoo/skills --skill design-agentic-content-generation
 npx skills@latest add Biaoo/skills --skill agent-skill-design
 ```
 
@@ -43,6 +45,8 @@ This repository currently contains the skills listed below.
 
 - [adaptive-formalization](./skills/engineering/adaptive-formalization/SKILL.md) - choose the right formalization level for AI-native entities, schemas, artifacts, and agent outputs.
 - [ai-friendly-cli-design](./skills/engineering/ai-friendly-cli-design/SKILL.md) - design CLI commands that agents can inspect, parse, and continue from safely.
+- [context-efficiency-evaluation](./skills/engineering/context-efficiency-evaluation/SKILL.md) - evaluate agent context efficiency only after correctness, safety, and evidence gates.
+- [design-agentic-content-generation](./skills/engineering/design-agentic-content-generation/SKILL.md) - design trustworthy Agentic content-generation projects with local routes, proportional controls, and explicit human intervention.
 
 ### Personal
 
