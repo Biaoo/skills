@@ -24,6 +24,7 @@ npx skills@latest add Biaoo/skills --skill ai-friendly-cli-design
 npx skills@latest add Biaoo/skills --skill context-efficiency-evaluation
 npx skills@latest add Biaoo/skills --skill design-agentic-content-generation
 npx skills@latest add Biaoo/skills --skill agent-skill-design
+npx skills@latest add Biaoo/skills --skill externalize-thinking
 ```
 
 List available skills before installing:
@@ -51,6 +52,7 @@ This repository currently contains the skills listed below.
 ### Personal
 
 - [agent-skill-design](./skills/personal/agent-skill-design/SKILL.md) - design agent skills as progressive behavioral interfaces.
+- [externalize-thinking](./skills/personal/externalize-thinking/SKILL.md) - externalize fuzzy intuitions and calibrate human-AI co-thinking.
 
 ## Maintenance
 
@@ -101,3 +103,19 @@ Preview link changes without writing files:
 ```bash
 scripts/link-skills.sh --target codex --dry-run
 ```
+
+Preview the container installation:
+
+```bash
+scripts/one-shot-container-install.sh
+```
+
+Run the installation:
+
+```bash
+scripts/one-shot-container-install.sh --execute
+```
+
+The script installs one skill in one disposable container. It can be run again
+after a successful installation; concurrent runs are rejected to avoid reusing
+the same container name.

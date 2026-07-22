@@ -1,5 +1,7 @@
 # Experiment Design
 
+After declaring estimands and matched pairs, use the versioned boundaries and immutable workspace slots in `runtime-contract.md` for deterministic qualification and compatible native metric arithmetic. Keep oracle and hidden acceptance material outside the evaluated project: an in-project workspace or ignore rule does not isolate it from the subject.
+
 Load this reference for experiment-design mode, disputed matched-comparison validity, instrumentation effects, uncertainty analysis, or conclusions intended to support rollout.
 
 ## Define the Estimand Before Metrics

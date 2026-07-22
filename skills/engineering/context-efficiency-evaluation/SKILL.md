@@ -92,6 +92,21 @@ Treat correctness failure, safety or provenance failure, hidden I/O, and benchma
 
 A plausible waste pattern supports a candidate optimization and controlled test. It does not establish that the optimization works.
 
+## Use the Deterministic Runtime
+
+When traces or comparisons need machine-checkable boundaries, use `scripts/context_eval.py` for versioned contract validation, provider-neutral JSONL normalization, content-addressed tree snapshots, immutable evaluation workspaces, and gate-first matched-pair arithmetic. Keep semantic acceptance, safety, relevance, evidence sufficiency, causal usefulness, and hidden oracle material outside the subject workspace in named rubrics and adjudication; the runtime intentionally does not infer them or emit a winner or score. Workspace paths and ignore rules organize evidence but do not isolate the subject from evaluator or oracle data.
+
+For in-project evidence, initialize a workspace and explicitly exclude it from project snapshots:
+
+```text
+python3 scripts/context_eval.py init evaluation-id
+python3 scripts/context_eval.py snapshot . --exclude .context-evaluation --workspace WORKSPACE --artifact-slug baseline --label before
+```
+
+`init` warns on stderr because `.context-evaluation` is not auto-ignored; its canonical JSON stdout remains machine-readable and it never edits ignore files. Add `/.context-evaluation/` to `.gitignore` yourself when appropriate, and always pass `--exclude .context-evaluation` when snapshotting a root that contains the workspace. Snapshots are stored per artifact slug, so baseline and treatment may safely use the same label. Do not put oracle or hidden acceptance material in the evaluated project.
+
+Read `references/runtime-contract.md` before producing or consuming `ctxeval.input.v1`, `ctxeval.event.v1`, `ctxeval.tree.v1`, or `ctxeval.report.v1` artifacts.
+
 ## Report for Continuation
 
 Use the smallest useful form, preserving ambiguity and next action:
@@ -118,6 +133,7 @@ Keep the conclusion provisional when telemetry, correctness, safety, provenance,
 
 Load only what can change the evaluation:
 
+- `references/runtime-contract.md`: deterministic validation, normalization, snapshots, versioned artifacts, exit codes, gate eligibility, or compatible native metric comparison.
 - `references/evidence-model.md`: telemetry sufficiency, subject/evaluator separation, exposure stages, provenance, payload integrity, or usage-field interpretation.
-- `references/annotation-guide.md`: disputed relevance, exploration breadth, rereads, wrong turns, rework, continuation quality, or rater disagreement.
-- `references/experiment-design.md`: matched comparison validity, experiment-design mode, uncertainty, instrumentation effects, or rollout-facing conclusions.
+- `references/annotation-guide.md`: disputed relevance, exploration breadth, rereads, wrong turns, rework, continuation quality, or rater disagreement; semantic adjudication stays outside the runtime.
+- `references/experiment-design.md`: matched comparison validity, experiment-design mode, uncertainty, instrumentation effects, or rollout-facing conclusions; declare pairs and estimands before runtime evaluation.

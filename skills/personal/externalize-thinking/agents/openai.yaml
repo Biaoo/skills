@@ -1,0 +1,4 @@
+interface:
+  display_name: "Externalize Thinking"
+  short_description: "Externalize fuzzy intuitions for better AI collaboration"
+  default_prompt: "Use $externalize-thinking to help me clarify this fuzzy intuition and turn it into a testable next move."

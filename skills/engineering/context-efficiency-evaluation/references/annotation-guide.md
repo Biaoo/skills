@@ -1,5 +1,7 @@
 # Annotation Guide
 
+Semantic judgments in this guide remain outside the deterministic runtime; record their status and evidence at the boundary described in `runtime-contract.md`.
+
 Load this reference when semantic adjudication is needed for context relevance, exploration breadth, rereads, wrong turns, rework, or continuation quality.
 
 ## Anchor the Rubric to the Task

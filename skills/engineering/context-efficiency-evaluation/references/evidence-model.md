@@ -1,5 +1,7 @@
 # Evidence Model
 
+For deterministic artifact fields, explicit missingness, normalization blobs, immutable workspaces, and native metric compatibility, also read `runtime-contract.md`. Workspace organization and ignore configuration are not evidence that the subject was isolated from evaluator or oracle data; hidden acceptance must remain outside the evaluated project.
+
 Load this reference when the evaluation depends on telemetry sufficiency, payload lineage, provider usage fields, or the distinction between what a subject agent did and what the evaluator can observe.
 
 ## Separate the Runs
