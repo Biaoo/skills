@@ -1,0 +1,4 @@
+interface:
+  display_name: "Living Documentation"
+  short_description: "Keep active docs current and history separate"
+  default_prompt: "Use $living-documentation to state what is valid now: rewrite lasting lessons as current rules, remove obsolete residue, and move only history with ongoing value out of the default context."

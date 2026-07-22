@@ -1,0 +1,4 @@
+interface:
+  display_name: "Calibrated Assertiveness"
+  short_description: "Preserve intent without defensive dilution"
+  default_prompt: "Use $calibrated-assertiveness to preserve this objective and give the clearest supported judgment across answers, documentation, implementations, and tests—without defensive caveats, unrequested scope reduction, or failure-only validation."
