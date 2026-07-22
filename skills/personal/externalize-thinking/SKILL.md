@@ -120,3 +120,7 @@ Adapt or omit fields when a shorter response is sufficient. If producing several
 - When the user wants a stabilized cognitive method turned into an agent skill, use `agent-skill-design` next.
 - When the result must become a durable schema, entity, event, or Agent artifact, use `adaptive-formalization` next.
 - Keep exploratory cognition here until its behavior and consumers justify a harder representation.
+
+## How to Improve This Skill
+
+If real use reveals a possible improvement, keep the task moving and use `report-biaoo-skill-feedback`. If unavailable, retain a privacy-safe `Biaoo/skills` issue draft rather than submitting from this session.

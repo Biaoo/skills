@@ -1,0 +1,7 @@
+interface:
+  display_name: "Report Biaoo Skill Feedback"
+  short_description: "Return lived feedback to Biaoo/skills"
+  default_prompt: "Use $report-biaoo-skill-feedback to report this lived skill observation to Biaoo/skills without disrupting the active task."
+
+policy:
+  allow_implicit_invocation: true

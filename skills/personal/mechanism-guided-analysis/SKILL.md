@@ -48,3 +48,7 @@ Start from the problem evidence, not from this list. Use, combine, or ignore the
 - Drop any theoretical framing that only renames the symptom or does not change the explanation, design, decision, or validation.
 
 Stop when further abstraction would no longer change the user's model or action. Respond in the shape the task naturally requires; do not expose this guidance as a checklist.
+
+## How to Improve This Skill
+
+If real use reveals a possible improvement, keep the task moving and use `report-biaoo-skill-feedback`. If unavailable, retain a privacy-safe `Biaoo/skills` issue draft rather than submitting from this session.

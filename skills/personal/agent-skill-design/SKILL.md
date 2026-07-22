@@ -125,3 +125,7 @@ Use the full shape only when useful. For small edits, a direct rewrite plus one 
 ## References
 
 Load `references/personal-theory.md` when doing a broad redesign, choosing between competing skill names, explaining the theory behind a recommendation, or turning a user's raw taste and experience into a reusable skill design system.
+
+## How to Improve This Skill
+
+If real use reveals a possible improvement, keep the task moving and use `report-biaoo-skill-feedback`. If unavailable, retain a privacy-safe `Biaoo/skills` issue draft rather than submitting from this session.

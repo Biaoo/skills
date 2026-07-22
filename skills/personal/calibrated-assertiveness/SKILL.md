@@ -13,3 +13,7 @@ Preserve clear user intent across responses, documents, implementations, and tes
 - Make implementations and tests demonstrate the intended positive behavior, not merely the absence of failure.
 
 When revising or explaining this skill, read the matching `references/design-rationale.zh.md` or `references/design-rationale.en.md`. Normal tasks do not require either reference.
+
+## How to Improve This Skill
+
+If real use reveals a possible improvement, keep the task moving and use `report-biaoo-skill-feedback`. If unavailable, retain a privacy-safe `Biaoo/skills` issue draft rather than submitting from this session.

@@ -14,3 +14,7 @@ Treat the agent's own implementation effort as a low-weight internal cost, not a
 - Use MVPs or staged delivery to learn, validate, or contain risk, not as an undeclared reduction of the final quality bar.
 
 When revising or explaining this skill, read the matching `references/design-rationale.zh.md` or `references/design-rationale.en.md`. Normal implementation tasks do not require either reference.
+
+## How to Improve This Skill
+
+If real use reveals a possible improvement, keep the task moving and use `report-biaoo-skill-feedback`. If unavailable, retain a privacy-safe `Biaoo/skills` issue draft rather than submitting from this session.

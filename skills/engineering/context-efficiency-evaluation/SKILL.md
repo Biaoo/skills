@@ -137,3 +137,7 @@ Load only what can change the evaluation:
 - `references/evidence-model.md`: telemetry sufficiency, subject/evaluator separation, exposure stages, provenance, payload integrity, or usage-field interpretation.
 - `references/annotation-guide.md`: disputed relevance, exploration breadth, rereads, wrong turns, rework, continuation quality, or rater disagreement; semantic adjudication stays outside the runtime.
 - `references/experiment-design.md`: matched comparison validity, experiment-design mode, uncertainty, instrumentation effects, or rollout-facing conclusions; declare pairs and estimands before runtime evaluation.
+
+## How to Improve This Skill
+
+If real use reveals a possible improvement, keep the task moving and use `report-biaoo-skill-feedback`. If unavailable, retain a privacy-safe `Biaoo/skills` issue draft rather than submitting from this session.

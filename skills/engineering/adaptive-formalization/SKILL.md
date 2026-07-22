@@ -80,3 +80,7 @@ Load references only when they change the decision:
 - `references/decision-rubric.md`: use when the F0-F4 level is not obvious.
 - `references/optimization-controls.md`: use when a schema choice is contested or Codex is formalizing mainly because implementation would be easier.
 - `references/capability-evidence-pack.md`: use when an Agent-facing representation needs evidence that it improves a real capability loop.
+
+## How to Improve This Skill
+
+If real use reveals a possible improvement, keep the task moving and use `report-biaoo-skill-feedback`. If unavailable, retain a privacy-safe `Biaoo/skills` issue draft rather than submitting from this session.

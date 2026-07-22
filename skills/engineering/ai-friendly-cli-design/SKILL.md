@@ -121,3 +121,7 @@ Use the full shape only when it clarifies the change. For narrow edits, a direct
 ## Reference
 
 Load `references/ai-friendly-cli-design.md` when making a broad CLI design change, when tradeoffs are contested, or when you need the full source guide behind these principles.
+
+## How to Improve This Skill
+
+If real use reveals a possible improvement, keep the task moving and use `report-biaoo-skill-feedback`. If unavailable, retain a privacy-safe `Biaoo/skills` issue draft rather than submitting from this session.

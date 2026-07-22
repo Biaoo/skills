@@ -13,3 +13,7 @@ Keep active documentation describing what is valid now.
 - Move history only when it has ongoing value for traceability, retrospectives, migrations, or decisions, and keep it outside the default active context.
 
 When revising or explaining this skill, read the matching `references/design-rationale.zh.md` or `references/design-rationale.en.md`. Normal documentation tasks do not require either reference.
+
+## How to Improve This Skill
+
+If real use reveals a possible improvement, keep the task moving and use `report-biaoo-skill-feedback`. If unavailable, retain a privacy-safe `Biaoo/skills` issue draft rather than submitting from this session.

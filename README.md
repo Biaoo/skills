@@ -29,6 +29,7 @@ npx skills@latest add Biaoo/skills --skill externalize-thinking
 npx skills@latest add Biaoo/skills --skill living-documentation
 npx skills@latest add Biaoo/skills --skill mechanism-guided-analysis
 npx skills@latest add Biaoo/skills --skill outcome-first-implementation
+npx skills@latest add Biaoo/skills --skill report-biaoo-skill-feedback
 ```
 
 List available skills before installing:
@@ -61,6 +62,7 @@ This repository currently contains the skills listed below.
 - [living-documentation](./skills/personal/living-documentation/SKILL.md) - keep active documentation current and route valuable history to separate, on-demand records.
 - [mechanism-guided-analysis](./skills/personal/mechanism-guided-analysis/SKILL.md) - trace surface signals to plausible mechanisms, better designs, and discriminating validations.
 - [outcome-first-implementation](./skills/personal/outcome-first-implementation/SKILL.md) - prioritize requested outcomes over implementer convenience when AI owns the implementation.
+- [report-biaoo-skill-feedback](./skills/personal/report-biaoo-skill-feedback/SKILL.md) - return observations from real skill use to Biaoo/skills without disrupting the active task.
 
 ## Maintenance
 

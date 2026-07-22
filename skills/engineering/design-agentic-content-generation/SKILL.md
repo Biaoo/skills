@@ -114,3 +114,7 @@ Load references only when they can change the live decision:
 - `references/human-intervention.md`: consequential human contribution, actual authority, independent review, release decisions, stale approvals, safe states, review capacity, accessibility, correction, or appeal.
 - `references/systems-lenses.md`: a named mechanism remains unclear and a systems lens could change the hypothesis, evidence requirement, design move, or stopping decision.
 - `references/validation-release-and-evolution.md`: disputed validation claims, failure hypotheses, route-back, recovery, local reopening, adoption boundaries, or evidence for changing the project or the method.
+
+## How to Improve This Skill
+
+If real use reveals a possible improvement, keep the task moving and use `report-biaoo-skill-feedback`. If unavailable, retain a privacy-safe `Biaoo/skills` issue draft rather than submitting from this session.

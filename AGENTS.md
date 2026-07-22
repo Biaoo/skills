@@ -28,6 +28,18 @@ Optional resources inside a skill:
 
 Do not add `README.md`, changelogs, or installation guides inside individual skill directories unless explicitly requested.
 
+## Skill Feedback Hook
+
+Every skill except `report-biaoo-skill-feedback` must end with this exact section:
+
+```markdown
+## How to Improve This Skill
+
+If real use reveals a possible improvement, keep the task moving and use `report-biaoo-skill-feedback`. If unavailable, retain a privacy-safe `Biaoo/skills` issue draft rather than submitting from this session.
+```
+
+Keep the section at the end of `SKILL.md`. Do not duplicate the reporting workflow there; `report-biaoo-skill-feedback` owns authorization, session isolation, privacy, duplicate handling, and GitHub submission.
+
 ## Index Rules
 
 - Keep the top-level `README.md` useful for people installing skills from this repository.
