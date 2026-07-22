@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mechanism-Guided Analysis"
+  short_description: "Trace surface signals to mechanisms and better designs"
+  default_prompt: "Use $mechanism-guided-analysis to look beyond this symptom, identify plausible mechanisms, and derive a better design and validation."

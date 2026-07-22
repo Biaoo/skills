@@ -1,0 +1,4 @@
+interface:
+  display_name: "Outcome-First Implementation"
+  short_description: "Prioritize outcomes over implementation convenience"
+  default_prompt: "Use $outcome-first-implementation to choose an implementation path without lowering the requested result for implementer convenience."

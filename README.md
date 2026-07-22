@@ -25,6 +25,8 @@ npx skills@latest add Biaoo/skills --skill context-efficiency-evaluation
 npx skills@latest add Biaoo/skills --skill design-agentic-content-generation
 npx skills@latest add Biaoo/skills --skill agent-skill-design
 npx skills@latest add Biaoo/skills --skill externalize-thinking
+npx skills@latest add Biaoo/skills --skill mechanism-guided-analysis
+npx skills@latest add Biaoo/skills --skill outcome-first-implementation
 ```
 
 List available skills before installing:
@@ -53,6 +55,8 @@ This repository currently contains the skills listed below.
 
 - [agent-skill-design](./skills/personal/agent-skill-design/SKILL.md) - design agent skills as progressive behavioral interfaces.
 - [externalize-thinking](./skills/personal/externalize-thinking/SKILL.md) - externalize fuzzy intuitions and calibrate human-AI co-thinking.
+- [mechanism-guided-analysis](./skills/personal/mechanism-guided-analysis/SKILL.md) - trace surface signals to plausible mechanisms, better designs, and discriminating validations.
+- [outcome-first-implementation](./skills/personal/outcome-first-implementation/SKILL.md) - prioritize requested outcomes over implementer convenience when AI owns the implementation.
 
 ## Maintenance
 
