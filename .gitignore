@@ -51,3 +51,6 @@ venv/
 *.tar
 *.tar.gz
 *.tgz
+
+# Local unpublished experiments
+/ignore_files/

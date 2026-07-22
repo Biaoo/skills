@@ -47,6 +47,8 @@ If real use reveals a possible improvement, keep the task moving and use `report
 
 Keep the section at the end of `SKILL.md`. Do not duplicate the reporting workflow there; `report-biaoo-skill-feedback` owns authorization, session isolation, privacy, duplicate handling, and GitHub submission.
 
+When interpreting or acting on feedback issues, read `docs/skill-feedback-as-observation.en.md` or the matching Chinese version, `docs/skill-feedback-as-observation.zh.md`. Do not turn a case-specific proposal directly into a general rule, and do not discard the Agent behavior it reveals merely because the issue's conclusion is wrong.
+
 ## Index Rules
 
 - Keep the top-level `README.md` useful for people installing skills from this repository.
