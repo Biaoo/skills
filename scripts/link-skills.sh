@@ -6,19 +6,22 @@ usage() {
 Link skills from this repository into a local agent skills directory.
 
 Usage:
-  scripts/link-skills.sh [--target codex|claude] [--bucket <bucket>] [--dry-run] [--force]
+  scripts/link-skills.sh [--target codex|claude] [--category <category>] [--dry-run] [--force]
 
 Options:
   --target <target>  Link into codex (~/.codex/skills) or claude (~/.claude/skills).
                      Default: codex.
-  --bucket <bucket>  Only link skills from one bucket, such as engineering or personal.
+  --category <category>
+                     Only link skills from one category, such as agent-systems or thinking.
+  --bucket <category>
+                     Backward-compatible alias for --category.
   --dry-run          Print what would be linked without changing files.
   --force            Replace existing non-symlink skill directories at the target.
   -h, --help         Show this help.
 
 Examples:
   scripts/link-skills.sh --target codex
-  scripts/link-skills.sh --target claude --bucket engineering
+  scripts/link-skills.sh --target claude --category agent-systems
   scripts/link-skills.sh --target codex --dry-run
 
 Safety:
@@ -29,7 +32,7 @@ EOF
 
 repo="$(cd "$(dirname "$0")/.." && pwd)"
 target_kind="codex"
-bucket_filter=""
+category_filter=""
 dry_run=0
 force=0
 
@@ -43,12 +46,12 @@ while [ "$#" -gt 0 ]; do
       target_kind="$2"
       shift 2
       ;;
-    --bucket)
+    --category|--bucket)
       if [ "$#" -lt 2 ]; then
-        echo "error: --bucket expects a bucket name" >&2
+        echo "error: $1 expects a category name" >&2
         exit 2
       fi
-      bucket_filter="$2"
+      category_filter="$2"
       shift 2
       ;;
     --dry-run)
@@ -70,6 +73,19 @@ while [ "$#" -gt 0 ]; do
       ;;
   esac
 done
+
+if [ -n "$category_filter" ]; then
+  case "$category_filter" in
+    *[!a-z0-9-]*)
+      echo "error: invalid category name: $category_filter" >&2
+      exit 2
+      ;;
+  esac
+  if [ ! -d "$repo/skills/$category_filter" ]; then
+    echo "error: unknown category: $category_filter" >&2
+    exit 2
+  fi
+fi
 
 case "$target_kind" in
   codex)
@@ -120,12 +136,12 @@ failed=0
 while IFS= read -r skill_md; do
   rel="${skill_md#"$repo/skills/"}"
   skill_dir_rel="$(dirname "$rel")"
-  bucket="${skill_dir_rel%%/*}"
+  category="${skill_dir_rel%%/*}"
   name="$(basename "$skill_dir_rel")"
   src="$(dirname "$skill_md")"
   target="$dest/$name"
 
-  if [ -n "$bucket_filter" ] && [ "$bucket" != "$bucket_filter" ]; then
+  if [ -n "$category_filter" ] && [ "$category" != "$category_filter" ]; then
     continue
   fi
 

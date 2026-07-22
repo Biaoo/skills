@@ -1,6 +1,6 @@
-# Engineering Skills
+# Agent Systems Skills
 
-Reusable skills for software engineering workflows.
+Skills whose primary subject is an Agent or AI-native system, interface, or evaluation. A skill belongs here because it improves an Agent system, not merely because an Agent uses it.
 
 - [adaptive-formalization](./adaptive-formalization/SKILL.md) - choose the right formalization level for AI-native entities, schemas, artifacts, and agent outputs.
 - [ai-friendly-cli-design](./ai-friendly-cli-design/SKILL.md) - design CLI commands that agents can inspect, parse, and continue from safely.

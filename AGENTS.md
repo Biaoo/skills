@@ -4,16 +4,23 @@ This repository maintains personal agent skills. Keep the project small and easy
 
 ## Repository Layout
 
-- `skills/engineering/` contains reusable skills for software engineering workflows.
-- `skills/personal/` contains skills tied to personal setup, private workflows, local tools, or preferences.
+- `skills/agent-systems/` contains skills whose primary subject is Agent or AI-native systems, interfaces, and evaluation.
+- `skills/thinking/` contains skills that help the user externalize, examine, or develop their thinking.
+- `skills/agent-behavior/` contains cross-domain preferences for how an Agent should work.
+- `skills/writing/` contains skills whose primary output is written content or documentation.
+- `skills/skill-system/` contains skills for designing, maintaining, and improving the skill collection itself.
 - `CLAUDE.md` is a symlink to this file so Claude-oriented tools read the same rules.
+
+Classify a skill by the primary object it improves, not by the fact that an Agent uses it. All skills in this repository are Agent-executed, so `agentic` alone is not a useful category boundary. For example, a skill that designs an Agent system belongs in `agent-systems`, while a skill that designs a user interface belongs in a future `ui-design` category.
+
+Give each skill one primary category. Keep secondary relationships in its description or the repository index rather than duplicating the skill or adding a tag schema prematurely.
 
 ## Skill Layout
 
 Each skill must live in its own directory:
 
 ```text
-skills/<bucket>/<skill-name>/
+skills/<category>/<skill-name>/
 └── SKILL.md
 ```
 
@@ -45,8 +52,8 @@ Keep the section at the end of `SKILL.md`. Do not duplicate the reporting workfl
 - Keep the top-level `README.md` useful for people installing skills from this repository.
 - Include `npx skills@latest add Biaoo/skills` as the primary install command unless the GitHub repository changes.
 - Update the top-level `README.md` when adding stable, generally useful skills.
-- Update the relevant bucket README when adding any skill to that bucket.
-- Personal skills may stay out of the top-level README if they are only useful to the owner.
+- Update the relevant category README when adding any skill to that category.
+- Owner-specific skills may stay out of the top-level README if they are only useful to the owner.
 
 ## Maintenance Rules
 
@@ -54,4 +61,5 @@ Keep the section at the end of `SKILL.md`. Do not duplicate the reporting workfl
 - Move long reference material out of `SKILL.md` into `references/`.
 - Do not add install, sync, release, or package-management tooling until requested.
 - Keep repository scripts conservative: include help text, support dry-run when writing outside the repo, and do not overwrite non-symlink user files unless explicitly forced.
-- If the correct bucket is unclear, ask before creating the skill.
+- Add a new category only when a skill has a stable primary target not represented by an existing category. Domain categories such as `ui-design` or `research` may be added as the collection grows.
+- If the correct primary category is unclear, ask before creating the skill.

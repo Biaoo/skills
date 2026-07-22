@@ -42,41 +42,59 @@ This repository currently contains the skills listed below.
 
 ## Structure
 
-- `skills/engineering/` - reusable skills for software engineering work.
-- `skills/personal/` - skills tied to personal workflows, local tools, or private context.
+Skills are grouped by the primary object they improve:
+
+- `skills/agent-systems/` - Agent and AI-native systems, interfaces, and evaluation.
+- `skills/thinking/` - the user's thinking, articulation, and analysis.
+- `skills/agent-behavior/` - cross-domain preferences for how an Agent should work.
+- `skills/writing/` - written content and documentation.
+- `skills/skill-system/` - the design and evolution of the skill collection itself.
+
+All skills are Agent-executed, so categories do not describe whether work is
+agentic. New domains such as `ui-design` should become categories when a skill's
+primary output belongs there.
 
 ## Skills
 
-### Engineering
+### Agent Systems
 
-- [adaptive-formalization](./skills/engineering/adaptive-formalization/SKILL.md) - choose the right formalization level for AI-native entities, schemas, artifacts, and agent outputs.
-- [ai-friendly-cli-design](./skills/engineering/ai-friendly-cli-design/SKILL.md) - design CLI commands that agents can inspect, parse, and continue from safely.
-- [context-efficiency-evaluation](./skills/engineering/context-efficiency-evaluation/SKILL.md) - evaluate agent context efficiency only after correctness, safety, and evidence gates.
-- [design-agentic-content-generation](./skills/engineering/design-agentic-content-generation/SKILL.md) - design trustworthy Agentic content-generation projects with local routes, proportional controls, and explicit human intervention.
+- [adaptive-formalization](./skills/agent-systems/adaptive-formalization/SKILL.md) - choose the right formalization level for AI-native entities, schemas, artifacts, and agent outputs.
+- [ai-friendly-cli-design](./skills/agent-systems/ai-friendly-cli-design/SKILL.md) - design CLI commands that agents can inspect, parse, and continue from safely.
+- [context-efficiency-evaluation](./skills/agent-systems/context-efficiency-evaluation/SKILL.md) - evaluate agent context efficiency only after correctness, safety, and evidence gates.
+- [design-agentic-content-generation](./skills/agent-systems/design-agentic-content-generation/SKILL.md) - design trustworthy Agentic content-generation projects with local routes, proportional controls, and explicit human intervention.
 
-### Personal
+### Thinking
 
-- [agent-skill-design](./skills/personal/agent-skill-design/SKILL.md) - design agent skills as progressive behavioral interfaces.
-- [calibrated-assertiveness](./skills/personal/calibrated-assertiveness/SKILL.md) - preserve clear intent without defensive caveats, scope reduction, or weakened verification.
-- [externalize-thinking](./skills/personal/externalize-thinking/SKILL.md) - externalize fuzzy intuitions and calibrate human-AI co-thinking.
-- [living-documentation](./skills/personal/living-documentation/SKILL.md) - keep active documentation current and route valuable history to separate, on-demand records.
-- [mechanism-guided-analysis](./skills/personal/mechanism-guided-analysis/SKILL.md) - trace surface signals to plausible mechanisms, better designs, and discriminating validations.
-- [outcome-first-implementation](./skills/personal/outcome-first-implementation/SKILL.md) - prioritize requested outcomes over implementer convenience when AI owns the implementation.
-- [report-biaoo-skill-feedback](./skills/personal/report-biaoo-skill-feedback/SKILL.md) - return observations from real skill use to Biaoo/skills without disrupting the active task.
+- [externalize-thinking](./skills/thinking/externalize-thinking/SKILL.md) - externalize fuzzy intuitions and calibrate human-AI co-thinking.
+- [mechanism-guided-analysis](./skills/thinking/mechanism-guided-analysis/SKILL.md) - trace surface signals to plausible mechanisms, better designs, and discriminating validations.
+
+### Agent Behavior
+
+- [calibrated-assertiveness](./skills/agent-behavior/calibrated-assertiveness/SKILL.md) - preserve clear intent without defensive caveats, scope reduction, or weakened verification.
+- [outcome-first-implementation](./skills/agent-behavior/outcome-first-implementation/SKILL.md) - prioritize requested outcomes over implementer convenience when AI owns the implementation.
+
+### Writing
+
+- [living-documentation](./skills/writing/living-documentation/SKILL.md) - keep active documentation current and route valuable history to separate, on-demand records.
+
+### Skill System
+
+- [agent-skill-design](./skills/skill-system/agent-skill-design/SKILL.md) - design agent skills as progressive behavioral interfaces.
+- [report-biaoo-skill-feedback](./skills/skill-system/report-biaoo-skill-feedback/SKILL.md) - return observations from real skill use to Biaoo/skills without disrupting the active task.
 
 ## Maintenance
 
 Create each skill as a self-contained directory:
 
 ```text
-skills/<bucket>/<skill-name>/
+skills/<category>/<skill-name>/
 └── SKILL.md
 ```
 
 Optional skill resources can be added when needed:
 
 ```text
-skills/<bucket>/<skill-name>/
+skills/<category>/<skill-name>/
 ├── SKILL.md
 ├── agents/
 │   └── openai.yaml
@@ -85,7 +103,7 @@ skills/<bucket>/<skill-name>/
 └── assets/
 ```
 
-After adding a stable skill, update this README and the relevant bucket README.
+After adding a stable skill, update this README and the relevant category README.
 
 ## Local Scripts
 
@@ -102,10 +120,10 @@ scripts/link-skills.sh --target codex
 scripts/link-skills.sh --target claude
 ```
 
-Link only one bucket:
+Link only one category:
 
 ```bash
-scripts/link-skills.sh --target codex --bucket engineering
+scripts/link-skills.sh --target codex --category agent-systems
 ```
 
 Preview link changes without writing files:

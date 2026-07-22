@@ -6,23 +6,24 @@ usage() {
 List skills in this repository.
 
 Usage:
-  scripts/list-skills.sh [--format path|name|table] [--bucket <bucket>]
+  scripts/list-skills.sh [--format path|name|table] [--category <category>]
 
 Options:
-  --format <format>  Output format: path, name, or table. Default: path.
-  --bucket <bucket>  Only list skills from one bucket, such as engineering or personal.
-  -h, --help         Show this help.
+  --format <format>      Output format: path, name, or table. Default: path.
+  --category <category>  Only list skills from one category, such as agent-systems or thinking.
+  --bucket <category>    Backward-compatible alias for --category.
+  -h, --help             Show this help.
 
 Examples:
   scripts/list-skills.sh
   scripts/list-skills.sh --format table
-  scripts/list-skills.sh --bucket engineering --format name
+  scripts/list-skills.sh --category agent-systems --format name
 EOF
 }
 
 repo="$(cd "$(dirname "$0")/.." && pwd)"
 format="path"
-bucket_filter=""
+category_filter=""
 
 while [ "$#" -gt 0 ]; do
   case "$1" in
@@ -34,12 +35,12 @@ while [ "$#" -gt 0 ]; do
       format="$2"
       shift 2
       ;;
-    --bucket)
+    --category|--bucket)
       if [ "$#" -lt 2 ]; then
-        echo "error: --bucket expects a bucket name" >&2
+        echo "error: $1 expects a category name" >&2
         exit 2
       fi
-      bucket_filter="$2"
+      category_filter="$2"
       shift 2
       ;;
     -h|--help)
@@ -53,6 +54,19 @@ while [ "$#" -gt 0 ]; do
       ;;
   esac
 done
+
+if [ -n "$category_filter" ]; then
+  case "$category_filter" in
+    *[!a-z0-9-]*)
+      echo "error: invalid category name: $category_filter" >&2
+      exit 2
+      ;;
+  esac
+  if [ ! -d "$repo/skills/$category_filter" ]; then
+    echo "error: unknown category: $category_filter" >&2
+    exit 2
+  fi
+fi
 
 case "$format" in
   path|name|table) ;;
@@ -85,17 +99,17 @@ extract_summary() {
 }
 
 if [ "$format" = "table" ]; then
-  printf "%-14s %-32s %s\n" "BUCKET" "NAME" "DESCRIPTION"
+  printf "%-14s %-32s %s\n" "CATEGORY" "NAME" "DESCRIPTION"
 fi
 
 find "$repo/skills" -name SKILL.md -type f -not -path '*/node_modules/*' | sort |
 while IFS= read -r skill_md; do
   rel="${skill_md#"$repo/skills/"}"
   skill_dir="$(dirname "$rel")"
-  bucket="${skill_dir%%/*}"
+  category="${skill_dir%%/*}"
   name="$(basename "$skill_dir")"
 
-  if [ -n "$bucket_filter" ] && [ "$bucket" != "$bucket_filter" ]; then
+  if [ -n "$category_filter" ] && [ "$category" != "$category_filter" ]; then
     continue
   fi
 
@@ -108,7 +122,7 @@ while IFS= read -r skill_md; do
       ;;
     table)
       description="$(extract_summary "$skill_md")"
-      printf "%-14s %-32s %s\n" "$bucket" "$name" "$description"
+      printf "%-14s %-32s %s\n" "$category" "$name" "$description"
       ;;
   esac
 done
