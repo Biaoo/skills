@@ -131,19 +131,3 @@ Preview link changes without writing files:
 ```bash
 scripts/link-skills.sh --target codex --dry-run
 ```
-
-Preview the container installation:
-
-```bash
-scripts/one-shot-container-install.sh
-```
-
-Run the installation:
-
-```bash
-scripts/one-shot-container-install.sh --execute
-```
-
-The script installs one skill in one disposable container. It can be run again
-after a successful installation; concurrent runs are rejected to avoid reusing
-the same container name.
