@@ -32,48 +32,18 @@ Use `.zh.md` for Chinese interaction and `.en.md` for English interaction. Load 
 
 ## Select the Smallest Useful Move
 
-Choose only the moves the current state needs:
+Choose only the moves the current state needs. Each move's inner shape is a reminder of what it can hold, not a form to fill:
 
 - **Preserve:** Restate the unresolved signal without making it cleaner or more certain than the user expressed it.
-- **Locate:** Identify the current object of thought, cognitive operation, desired output, and epistemic status.
+- **Locate:** Name the current focus (object of thought), operation (what is being done to it), desired output, and epistemic status (felt sense, candidate framing, working model, tested rule, or reusable method). A one-sentence clarification may be enough; do not present this as a mandatory schema.
 - **Differentiate:** Test whether apparent levels are dimensions, roles, states, operations, stages, or genuinely hierarchical levels.
 - **Articulate:** Offer 2-5 candidate names or structures and state what each reveals and hides.
-- **Probe:** Convert unease into a question, the risk it points toward, and a concrete validation action.
+- **Probe:** Turn unease into a diagnostic question, the risk it points toward, and a concrete validation action: `unease -> question -> risk direction -> validation action -> continue / stop / redirect / ground`. Do not open several abstract probes when one could materially change the next decision.
 - **Support:** Identify what a more abstract judgment requires and which missing support can be supplied now.
-- **Ground:** Convert a principle into applicability conditions, affected decisions, observable deviations, optimization signals, and a minimal iteration.
+- **Ground:** Walk a candidate principle toward action only as far as needed: `applicability conditions -> influence scope -> deviation scan -> optimization signal -> minimal action -> feedback on the principle`. Do not turn a candidate principle into a universal rule merely because it sounds coherent.
 - **Package:** Produce a map, prompt, decision rule, document outline, or framework only when reuse is desired.
 
 When several readings are plausible, show the alternatives instead of forcing a single coordinate or diagnosis.
-
-## Cognitive Coordinates
-
-Use four coordinates when location would reduce confusion:
-
-- **Focus:** what the user is treating as the object of thought.
-- **Operation:** what the user is doing to that object.
-- **Output:** what artifact would make the thought usable.
-- **Epistemic status:** felt sense, candidate framing, working model, tested rule, or reusable method.
-
-Do not present the coordinates as a mandatory schema. A one-sentence clarification may be enough.
-
-## Probe and Grounding Contracts
-
-Keep a cognitive probe connected to action:
-
-```text
-unease -> diagnostic question -> risk direction -> validation action -> continue / stop / redirect / ground
-```
-
-Do not open several abstract probes when one could materially change the next decision.
-
-Keep principle grounding conditional:
-
-```text
-candidate principle -> applicability conditions -> influence scope -> deviation scan
--> current optimization signal -> minimal action -> feedback on the principle
-```
-
-Do not turn a candidate principle into a universal rule merely because it sounds coherent.
 
 ## Stop Conditions
 
@@ -95,11 +65,8 @@ Use the smallest response that preserves continuation. For substantial work, inc
 ```text
 Current signal or tension:
 Candidate framing:
-Current cognitive coordinates:
-Epistemic status:
 Unresolved ambiguity:
-Validation or grounding move:
-Next action:
+Next move:
 ```
 
 Adapt or omit fields when a shorter response is sufficient. If producing several names or models, include their tradeoffs rather than only ranking them.

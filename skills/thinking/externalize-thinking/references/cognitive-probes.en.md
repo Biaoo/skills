@@ -11,7 +11,7 @@
 - [Value In AI Collaboration](#value-in-ai-collaboration)
 - [Risks](#risks)
 - [Better Use](#better-use)
-- [Open Questions](#open-questions)
+- [Open Boundaries](#open-boundaries)
 
 When AI gives me an output, I do not always know immediately where the problem is.
 
@@ -358,7 +358,11 @@ This keeps probes from becoming a rigid process or endless suspicion.
 
 It preserves the liveness of thought while allowing the random questions that appear in conversation to gradually become reviewable, developable, and reusable cognitive assets.
 
-## Open Questions
+Whether a probe system can be trained depends on which dimension you split it into. Adding knowledge and cases makes probes more accurate — knowing more failure modes, boundary conditions, and counterexamples sharpens the direction of detection. Accumulating experience makes probes more stable — repeatedly calibrating in similar situations builds a more reliable on-the-spot feel. Articulating judgment criteria makes probes checkable — turning "I feel this is wrong" into statable evidence. And stopping ability — knowing when to stop probing — depends especially on distinguishing high-quality alertness from overcomplication; this is the hardest to train in isolation and usually requires reviewing one's own probe history.
+
+## Open Boundaries
+
+The questions below mark the applicable boundaries of cognitive probes. Keep them open when using the concept; do not extend it beyond its boundaries just because it sounds right. Some are inherent tensions; others are seed questions that may develop with experience.
 
 When should a probe continue, and when should it stop?
 
@@ -367,8 +371,6 @@ When multiple probes appear at the same time, how should the main risk be identi
 How can I give a probe to AI without making AI over-agree?
 
 When probes repeatedly appear, when can they be stably named as dimensions?
-
-Can a person's probe system be trained? If so, is the training about knowledge, experience, judgment criteria, or stopping ability?
 
 How can I distinguish high-quality alertness from overcomplication?
 

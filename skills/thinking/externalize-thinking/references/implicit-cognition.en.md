@@ -12,7 +12,7 @@
 - [Why It Matters](#why-it-matters)
 - [Its Role In AI Interaction](#its-role-in-ai-interaction)
 - [Place In The Thought-Sedimentation System](#place-in-the-thought-sedimentation-system)
-- [Open Questions](#open-questions)
+- [Open Boundaries](#open-boundaries)
 - [Summary](#summary)
 
 ## Core Definition
@@ -34,6 +34,8 @@ It is also not a name for all unconscious activity. This document is not trying 
 It is not a mature theory. A mature theory has relatively stable concepts, boundaries, mechanisms, and use cases. Implicit cognition is often still in the state of "I know there is something here, but I do not yet know how to say it."
 
 It is also not something that should immediately be frozen into a checklist. Premature operationalization can destroy the sensitivity that made the signal valuable in the first place.
+
+It overlaps with ordinary intuition, but its scope is wider. Ordinary intuition usually refers to fast, automatic pattern recognition — the immediate judgment of an expert encountering a familiar situation. Implicit cognition also includes this kind of compressed experience, but it further covers gaps in the cognitive map, attention biases shaped by value preferences, and structural recognition that has not yet been named. In other words, intuition leans toward "fast judgment," while implicit cognition can be as minimal as "I know something is missing here but I cannot say it." The two converge at compressed experience, but they are not the same.
 
 ## Where It Comes From
 
@@ -197,11 +199,9 @@ The purpose of recording implicit cognition is therefore not to freeze it once a
 
 If the form is too rigid, the idea closes too early. If the form is too loose, it cannot be reused. The better container is an evolving reference: first catch one concept, then let later conversations add boundaries, counterexamples, mechanisms, and use cases.
 
-## Open Questions
+## Open Boundaries
 
-Several questions remain open.
-
-Where is the boundary between implicit cognition and ordinary intuition?
+The questions below mark the applicable boundaries of implicit cognition. Keep them open when using the concept; do not extend it beyond its boundaries just because it sounds right. Some are inherent tensions; others are seed questions that may develop with experience.
 
 When should it be trusted, and when should it be doubted?
 
@@ -210,8 +210,6 @@ How can one tell the difference between missing a word and missing a piece of kn
 Is AI's candidate language helping reveal the hidden structure, or covering the gap with polished wording?
 
 When can an implicit judgment move from personal experience into a reusable method?
-
-These questions do not need to be solved in this document. They can become sources for later references, chapter drafts, or skill rules.
 
 ## Summary
 

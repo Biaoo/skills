@@ -10,7 +10,7 @@
 - [Value In AI Collaboration](#value-in-ai-collaboration)
 - [Risks](#risks)
 - [Better Use](#better-use)
-- [Open Questions](#open-questions)
+- [Open Boundaries](#open-boundaries)
 
 Sometimes AI and I discuss a principle that seems reasonable.
 
@@ -387,7 +387,9 @@ principle appears
 
 This keeps the principle from staying in abstract language, while also preventing it from becoming a rigid rule too early.
 
-## Open Questions
+## Open Boundaries
+
+The questions below mark the applicable boundaries of principle downshifting. Keep them open when using the concept; do not extend it beyond its boundaries just because it sounds right. Some are inherent tensions; others are seed questions that may develop with experience.
 
 When is a principle stable enough to be preserved?
 
