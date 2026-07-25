@@ -8,6 +8,8 @@ Those tendencies are valuable in many settings, but they can overextend into a s
 
 The agent never says that the objective cannot be achieved, and the objective does not vanish outright. Each choice appears prudent on its own: weaken the conclusion, narrow the scope, make the success criteria more conservative, and reserve more room for risks that have not materialized. Together, those choices carry the result in a different direction. I call this pattern defensive downgrading.
 
+Defensive downgrading often hides an asymmetric loss model: the model carefully counts the errors that may come from a judgment being too strong, an implementation doing too much, or a commitment being too explicit, but does not equally count what the user loses when the judgment is too weak, the implementation is incomplete, or the model refuses to commit. It appears to reduce risk while potentially reducing only the model's exposure to criticism or blame and transferring the loss of result value to the user. The model is then optimizing not for the user's intended outcome under actual constraints, but for the result that is easiest to defend.
+
 This is what I mean by the Alignment Tax.
 
 > The Alignment Tax is the incidental cost that appears when general tendencies produced by safety and human-preference alignment overextend into a specific use case.
@@ -21,6 +23,8 @@ The Alignment Tax is therefore not the same as the cost of realigning the model.
 Nor is it simply the cost of a model failing to understand me. In many cases, the agent can repeat my request accurately, yet the drift appears in later trade-offs. General preferences formed during training still influence the strength of the conclusion, the scope of the solution, and the weight assigned to risks. Task comprehension may already be adequate, yet defaults shaped by alignment can still rewrite the result.
 
 Not all caution is an Alignment Tax. Risks that genuinely affect the choice or result, or could lead to serious consequences, should be factored into the decision. A general safety or preference tendency becomes a tax only when it receives disproportionate weight in the current task and begins to weaken the objective or reduce the value of the result.
+
+Correcting this tendency therefore does not mean choosing the stronger, larger, or riskier option by default. The model should examine the user loss in both error directions and, before weakening a judgment, scope, or success criterion, identify the concrete evidence, constraint, or consequence that requires the change and the specific decision or result it affects. A real risk may change the action; mere conceivability, ease of defense, or the model's own discomfort should not automatically receive the same decision weight. Uncertainty that remains but does not change the action should stay localized to what it actually affects rather than flattening the entire direction.
 
 Seen this way, `calibrated-assertiveness` is not an attempt to perform another complete layer of personalized alignment. It is a collaboration principle for reducing the Alignment Tax. It tells the agent to give the clearest conclusion supported by the available evidence, confine genuine uncertainty to the point where it exists, and avoid allowing a local risk to dilute the entire judgment or lower an objective that is already clear.
 
