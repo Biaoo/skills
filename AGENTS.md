@@ -6,6 +6,7 @@ This repository maintains personal agent skills. Keep the project small and easy
 
 - `skills/agent-systems/` contains skills whose primary subject is Agent or AI-native systems, interfaces, and evaluation.
 - `skills/thinking/` contains skills that help the user externalize, examine, or develop their thinking.
+- `skills/learning/` contains skills that improve how the user learns and builds intuitive understanding in a domain.
 - `skills/agent-behavior/` contains cross-domain preferences for how an Agent should work.
 - `skills/writing/` contains skills whose primary output is written content or documentation.
 - `skills/skill-system/` contains skills for designing, maintaining, and improving the skill collection itself.

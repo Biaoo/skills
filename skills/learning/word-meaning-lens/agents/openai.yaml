@@ -1,0 +1,4 @@
+interface:
+  display_name: "词义透视"
+  short_description: "从核心含义、意象与实际用法之间的联系中理解英语单词"
+  default_prompt: "使用 $word-meaning-lens 帮我从核心联系理解这个英语单词。"
