@@ -27,6 +27,7 @@ npx skills@latest add Biaoo/skills --skill agent-skill-design
 npx skills@latest add Biaoo/skills --skill calibrated-assertiveness
 npx skills@latest add Biaoo/skills --skill externalize-thinking
 npx skills@latest add Biaoo/skills --skill word-meaning-lens
+npx skills@latest add Biaoo/skills --skill design-intent-translator
 npx skills@latest add Biaoo/skills --skill living-documentation
 npx skills@latest add Biaoo/skills --skill mechanism-guided-analysis
 npx skills@latest add Biaoo/skills --skill outcome-first-implementation
@@ -48,6 +49,7 @@ Skills are grouped by the primary object they improve:
 - `skills/agent-systems/` - Agent and AI-native systems, interfaces, and evaluation.
 - `skills/thinking/` - the user's thinking, articulation, and analysis.
 - `skills/learning/` - how the user learns and builds intuitive understanding in a domain.
+- `skills/ui-design/` - interface design direction, judgment, and specification.
 - `skills/agent-behavior/` - cross-domain preferences for how an Agent should work.
 - `skills/writing/` - written content and documentation.
 - `skills/skill-system/` - the design and evolution of the skill collection itself.
@@ -73,6 +75,10 @@ primary output belongs there.
 ### Learning
 
 - [word-meaning-lens](./skills/learning/word-meaning-lens/SKILL.md) - understand English words through their most illuminating underlying meaning, image, or relation.
+
+### UI Design
+
+- [design-intent-translator](./skills/ui-design/design-intent-translator/SKILL.md) - turn vague interface preferences into comparable design directions and an actionable bilingual UI Brief.
 
 ### Agent Behavior
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "设计意图翻译"
+  short_description: "把模糊的界面感觉转成双语 UI Brief 与可比较的设计方向"
+  default_prompt: "使用 $design-intent-translator 帮我把这个模糊的界面想法整理成可选择的设计方向和双语 UI Brief。"
