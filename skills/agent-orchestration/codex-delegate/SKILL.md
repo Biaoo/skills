@@ -31,10 +31,16 @@ Keep local in the coordinator when the task is:
    ```bash
    git -C "$REPO" status -s
    ```
-3. **Isolate parallel writes**: never let the coordinator and Codex edit the same working directory concurrently. If the coordinator will edit files while Codex runs, create a dedicated `git worktree` using a stable, reusable path (avoid random/timestamped paths so `<environment_context>` stays consistent):
-   ```bash
-   git -C "$REPO" worktree add ../repo-codex -b codex/task-slug
-   ```
+3. **Isolate parallel writes**: never let the coordinator and Codex edit the same working directory concurrently. If parallel edits are needed, isolate by repository layout:
+   - **Regular Git repo** (`.git` is a directory): create a `git worktree` using a stable, reusable path (avoid random/timestamped paths so `<environment_context>` stays consistent):
+     ```bash
+     git -C "$REPO" worktree add ../repo-codex -b codex/task-slug
+     ```
+   - **Git submodule** (`.git` is a file, not a directory): **never** run `git worktree add` to an external directory—submodules inherit a relative `core.worktree` path in `.git/modules/<name>/config`, causing `git` commands, hooks, and tests to fail with `fatal: cannot chdir to '../../../...'`. Create an isolated clone instead (pointing `origin` back to the real remote URL if needed):
+     ```bash
+     git clone --shared "$REPO" ../repo-codex
+     ```
+4. **Align runtime environment**: if the target repository declares a required runtime or package manager (e.g., `.nvmrc`, `package.json#engines`), switch to it in the invoking shell before calling `codex exec` (e.g., `nvm use`) and state the expected toolchain in the Brief.
 
 ## Delegation Brief Contract
 
@@ -48,7 +54,7 @@ Every delegation prompt must specify all five elements so Codex cannot drift:
 
 ## Shell Execution Patterns
 
-Requires `codex-cli >= 0.150` (check `codex exec --help` if flags differ on your version). Always pass `-C` for the working root and `-s workspace-write` for bounded edits. Never default to `--dangerously-bypass-approvals-and-sandbox`. Run `codex exec` as a foreground process in the coordinator's shell tool (never append `&` or `nohup`) so the host manages backgrounding, timeout notifications, and completion wakeup cleanly.
+Requires `codex-cli >= 0.150` (check `codex exec --help` if flags differ on your version). Always pass `-C` for the working root and `-s workspace-write` for bounded edits. Never default to `--dangerously-bypass-approvals-and-sandbox`. Run `codex exec` as a foreground process in the coordinator's shell tool (never append `&` or `nohup`) so the host manages backgrounding, timeout notifications, and completion wakeup cleanly. For substantial tasks, set a reasonable host timeout notification (e.g., `NotificationTimeoutSeconds=600`) when invoking through the coordinator's shell tool so long runs neither stall silently nor trigger premature termination.
 
 ### Recommended: Brief via Stdin + Capture Final Message
 
@@ -102,6 +108,7 @@ exit "$STATUS"
 
 - Pass model and reasoning effort flags when specified by the user or global/workspace `AGENTS.md` (otherwise inherit `~/.codex/config.toml`):
   `-m <model>` or `-c model_reasoning_effort="high"`
+- **Fallback on `model_not_in_accessible_catalog`**: if Codex fails with `model_not_in_accessible_catalog`, inspect `~/.codex/models_cache.json` (`visibility: "list"`) before retrying rather than blindly dropping `-m` (since `~/.codex/config.toml` may also default to an inaccessible model).
 - Emit structured JSONL events to stdout for script parsing: `--json`
 - Skip persisting the session transcript to disk: `--ephemeral`
 - Resume the same delegation session if a follow-up fix is needed:

@@ -25,12 +25,13 @@ Skip `dsh-review` for:
 
 Requires `dsh >= 0.2` (check `dsh --profile headless --help` if flags differ on your version):
 
-1. **Always run inside the target repo root**: `dsh` binds `workspaceRoot` in its sandbox policy from `process.cwd()`. Change directory into `$REPO` before invoking `dsh`.
-2. **Always pass BOTH flags together**:
+1. **Verify headless credentials up front**: `dsh --version` succeeding does NOT prove `headless` has working credentials—`@deepseek-ai/dsh-headless` disables local `credentials` and `deepseek-account` by default unless explicitly enabled in `~/.dsh/profiles/headless/cordis.patch.yml` (otherwise it only reads `DEEPSEEK_API_KEY` from the environment). Verify provider/credential readiness before starting a long workflow that depends on automated review.
+2. **Always run inside the target repo root**: `dsh` binds `workspaceRoot` in its sandbox policy from `process.cwd()`. Change directory into `$REPO` before invoking `dsh`.
+3. **Always pass BOTH flags together**:
    `--permission-mode read-only --approval-policy never`
    The `read-only` preset defaults to `approval: ask`; omitting `--approval-policy never` can stall headless runs.
-3. **Never inspect or print credentials**: do not read or echo `~/.dsh/.credentials.yaml`, `DEEPSEEK_API_KEY`, or profile secret overlays.
-4. **Hard mutation guard**: snapshot `git status --porcelain` before and after running `dsh`. If anything changed, treat it as a sandbox breach and alert the user immediately.
+4. **Never inspect or print credentials**: do not read or echo `~/.dsh/.credentials.yaml`, `DEEPSEEK_API_KEY`, or profile secret overlays.
+5. **Hard mutation guard**: snapshot `git status --porcelain` before and after running `dsh`. If anything changed, treat it as a sandbox breach and alert the user immediately.
 
 ## Review Packet Contract
 
@@ -114,3 +115,4 @@ exit "$STATUS"
 1. **Max 1 automated review round by default**: avoid back-and-forth ping-pong loops between the writer agent and reviewer agent.
 2. **Verify before reporting**: check every `Blocker` / `High` finding against actual source files to filter false positives or context misunderstandings.
 3. **Escalate cleanly**: present the verified findings, verdict, and recommended action (`ship as-is`, `targeted local fix`, or `delegate fix via codex-delegate`) for user sign-off.
+4. **Honest fallback on tool failure**: if `dsh` cannot run due to missing credentials, network errors, or provider outages, the coordinator may perform a manual diff audit as fallback, but must explicitly report to the user that independent cross-model review did not execute—never present a manual audit as a passed `dsh-review`.
