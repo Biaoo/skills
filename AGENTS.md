@@ -5,6 +5,7 @@ This repository maintains personal agent skills. Keep the project small and easy
 ## Repository Layout
 
 - `skills/agent-systems/` contains skills whose primary subject is Agent or AI-native systems, interfaces, and evaluation.
+- `skills/agent-orchestration/` contains skills for multi-agent task routing, external CLI delegation, and cross-agent verification or review.
 - `skills/thinking/` contains skills that help the user externalize, examine, or develop their thinking.
 - `skills/learning/` contains skills that improve how the user learns and builds intuitive understanding in a domain.
 - `skills/agent-behavior/` contains cross-domain preferences for how an Agent should work.

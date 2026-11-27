@@ -20,6 +20,8 @@ For example:
 
 ```bash
 npx skills@latest add Biaoo/skills --skill adaptive-formalization
+npx skills@latest add Biaoo/skills --skill codex-delegate
+npx skills@latest add Biaoo/skills --skill dsh-review
 npx skills@latest add Biaoo/skills --skill ai-friendly-cli-design
 npx skills@latest add Biaoo/skills --skill context-efficiency-evaluation
 npx skills@latest add Biaoo/skills --skill design-agentic-content-generation
@@ -47,6 +49,7 @@ This repository currently contains the skills listed below.
 Skills are grouped by the primary object they improve:
 
 - `skills/agent-systems/` - Agent and AI-native systems, interfaces, and evaluation.
+- `skills/agent-orchestration/` - multi-agent task routing, external CLI delegation, and cross-agent verification or review.
 - `skills/thinking/` - the user's thinking, articulation, and analysis.
 - `skills/learning/` - how the user learns and builds intuitive understanding in a domain.
 - `skills/ui-design/` - interface design direction, judgment, and specification.
@@ -66,6 +69,11 @@ primary output belongs there.
 - [ai-friendly-cli-design](./skills/agent-systems/ai-friendly-cli-design/SKILL.md) - design CLI commands that agents can inspect, parse, and continue from safely.
 - [context-efficiency-evaluation](./skills/agent-systems/context-efficiency-evaluation/SKILL.md) - evaluate agent context efficiency only after correctness, safety, and evidence gates.
 - [design-agentic-content-generation](./skills/agent-systems/design-agentic-content-generation/SKILL.md) - design trustworthy Agentic content-generation projects with local routes, proportional controls, and explicit human intervention.
+
+### Agent Orchestration
+
+- [codex-delegate](./skills/agent-orchestration/codex-delegate/SKILL.md) - delegate bounded coding, refactoring, or test tasks to local OpenAI Codex CLI (`codex exec`).
+- [dsh-review](./skills/agent-orchestration/dsh-review/SKILL.md) - run independent, strictly read-only cross-model code review via local DeepSeek Harness (`dsh --profile headless`).
 
 ### Thinking
 
