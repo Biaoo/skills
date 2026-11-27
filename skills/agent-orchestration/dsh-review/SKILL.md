@@ -47,7 +47,7 @@ Never feed a naked `git diff`. Pack the prompt in **static-first, dynamic-last**
 
 ## Shell Execution Patterns
 
-Run `dsh --profile headless` as a foreground process in the coordinator's shell tool (never append `&` or `nohup`) so the host tracks completion and wakes up automatically with the real exit code and review report. Wrap it with a portable Node hard timeout guard (default `300` seconds) and set a coordinator timeout notification (e.g., `NotificationTimeoutSeconds=180`), treating exit code `124` as a timeout fallback.
+Run `dsh --profile headless` as a foreground process in the coordinator's shell tool (never append `&` or `nohup`) so the host tracks completion and wakes up automatically with the real exit code and review report. Wrap it with a portable Node hard timeout guard (default `600` seconds; pass `900`–`1200` for very large cross-module diffs) and set a coordinator timeout notification (e.g., `NotificationTimeoutSeconds=300`), treating exit code `124` as a timeout fallback.
 
 ### Review Uncommitted Changes (Staged + Working Tree)
 
@@ -60,7 +60,7 @@ BEFORE=$(git -C "$REPO" status --porcelain)
   cat <<'EOF'
 You are an independent, strictly READ-ONLY code reviewer.
 Do NOT edit, write, or create any files.
-Diff-first, strictly bounded inspection: review primarily from the diff below. Perform at most 3-5 targeted read-only file reads only when needed to verify a suspected bug or caller contract. Do NOT run exploratory node/test commands or repo-wide searches. Converge quickly and emit the final VERDICT and Findings.
+Diff-first, strictly bounded inspection: review primarily from the diff below. Perform at most 3-5 targeted read-only file reads only when needed to verify a suspected bug or caller contract. Do NOT run exploratory node/test commands or repo-wide searches. Skip enumerating clean/non-issue checks; focus reasoning only on genuinely suspect risks and emit the final VERDICT and Findings promptly.
 
 Focus strictly on:
 - Correctness, regressions, and unmet requirements
@@ -101,7 +101,7 @@ node -e '
     process.exit(124);
   }
   process.exit(r.status ?? 1);
-' "$REPO" "$PROMPT" 300
+' "$REPO" "$PROMPT" 600
 STATUS=$?
 
 AFTER=$(git -C "$REPO" status --porcelain)
@@ -123,7 +123,7 @@ exit "$STATUS"
 ## Prompt Cache & Session Reuse
 
 - **Static prefix first**: keep the fixed reviewer role, rubric, and output format above variable intent and diffs; never insert timestamps, random IDs, or temp paths before static instructions.
-- **Canonical repo root & stable flags**: always run from the same canonical `$REPO` root with the same `--profile headless --permission-mode read-only --approval-policy never` flags, without toggling plugins or MCP servers between runs, to maximize DeepSeek prefix context-cache hits. Keep `reasoningEffort: low` in `~/.dsh/profiles/headless/cordis.patch.yml` for automated code reviews so `dsh` converges in 1–3 minutes instead of over-deliberating.
+- **Canonical repo root & stable flags**: always run from the same canonical `$REPO` root with the same `--profile headless --permission-mode read-only --approval-policy never` flags, without toggling plugins or MCP servers between runs, to maximize DeepSeek prefix context-cache hits. Keep `reasoningEffort: low` in `~/.dsh/profiles/headless/cordis.patch.yml` for automated code reviews so `dsh` converges cleanly within the 600s budget instead of over-deliberating.
 - **Incremental re-review with `--session-id`**: keep 1 automated round as the default; if the user explicitly asks for a follow-up re-check of fixes on the same change, reuse `--session-id <id>` from the same `$REPO` root and send only the incremental diff.
 
 ## Triage and Convergence
