@@ -38,7 +38,7 @@ Requires `dsh >= 0.2` (check `dsh --profile headless --help` if flags differ on 
 Never feed a naked `git diff`. Pack the prompt in **static-first, dynamic-last** order so the shared review prefix stays cache-friendly:
 
 1. **Strict Output & Focus Rules (static top)**:
-   - Reviewer role and strict read-only rule.
+   - Reviewer role, strict read-only rule, and bounded-inspection limit: diff-first, at most 3-5 targeted file reads to verify a suspected bug or caller contract, and no exploratory scripts, test runs, or repo-wide searches.
    - Focus only on correctness, broken requirements, security/auth flaws, concurrency/lifecycle bugs, silent config shadowing, and unnecessary complexity (YAGNI). Do not report formatting, naming taste, or speculative nits.
    - Require exact evidence (`path:line`, failure scenario, minimal fix direction) and a single top-level verdict: `VERDICT: SHIP | SHIP_WITH_NOTES | BLOCK`.
 2. **Intent & Acceptance Criteria (dynamic)**: 1 concise paragraph explaining what the change is supposed to achieve and any critical invariants.
@@ -47,7 +47,7 @@ Never feed a naked `git diff`. Pack the prompt in **static-first, dynamic-last**
 
 ## Shell Execution Patterns
 
-Run `dsh --profile headless` as a foreground process in the coordinator's shell tool (never append `&` or `nohup`) so the host tracks completion and wakes up automatically with the real exit code and review report.
+Run `dsh --profile headless` as a foreground process in the coordinator's shell tool (never append `&` or `nohup`) so the host tracks completion and wakes up automatically with the real exit code and review report. Wrap it with a portable Node hard timeout guard (default `300` seconds) and set a coordinator timeout notification (e.g., `NotificationTimeoutSeconds=180`), treating exit code `124` as a timeout fallback.
 
 ### Review Uncommitted Changes (Staged + Working Tree)
 
@@ -59,7 +59,8 @@ BEFORE=$(git -C "$REPO" status --porcelain)
 {
   cat <<'EOF'
 You are an independent, strictly READ-ONLY code reviewer.
-Do NOT edit, write, or create any files. Inspect repository context as needed and review only against the intent and diff below.
+Do NOT edit, write, or create any files.
+Diff-first, strictly bounded inspection: review primarily from the diff below. Perform at most 3-5 targeted read-only file reads only when needed to verify a suspected bug or caller contract. Do NOT run exploratory node/test commands or repo-wide searches. Converge quickly and emit the final VERDICT and Findings.
 
 Focus strictly on:
 - Correctness, regressions, and unmet requirements
@@ -85,7 +86,22 @@ EOF
   git -C "$REPO" diff HEAD
 } > "$PROMPT"
 
-(cd "$REPO" && dsh --profile headless --permission-mode read-only --approval-policy never -) < "$PROMPT"
+node -e '
+  const fs = require("fs");
+  const { spawnSync } = require("child_process");
+  const [repo, promptFile, secs] = process.argv.slice(1);
+  const r = spawnSync("dsh", ["--profile", "headless", "--permission-mode", "read-only", "--approval-policy", "never", "-"], {
+    cwd: repo,
+    input: fs.readFileSync(promptFile),
+    stdio: ["pipe", "inherit", "inherit"],
+    timeout: Number(secs) * 1000,
+  });
+  if (r.error && r.error.code === "ETIMEDOUT") {
+    console.error(`ERROR: dsh review timed out after ${secs}s`);
+    process.exit(124);
+  }
+  process.exit(r.status ?? 1);
+' "$REPO" "$PROMPT" 300
 STATUS=$?
 
 AFTER=$(git -C "$REPO" status --porcelain)
@@ -107,7 +123,7 @@ exit "$STATUS"
 ## Prompt Cache & Session Reuse
 
 - **Static prefix first**: keep the fixed reviewer role, rubric, and output format above variable intent and diffs; never insert timestamps, random IDs, or temp paths before static instructions.
-- **Canonical repo root & stable flags**: always run from the same canonical `$REPO` root with the same `--profile headless --permission-mode read-only --approval-policy never` flags, without toggling plugins or MCP servers between runs, to maximize DeepSeek prefix context-cache hits.
+- **Canonical repo root & stable flags**: always run from the same canonical `$REPO` root with the same `--profile headless --permission-mode read-only --approval-policy never` flags, without toggling plugins or MCP servers between runs, to maximize DeepSeek prefix context-cache hits. Keep `reasoningEffort: low` in `~/.dsh/profiles/headless/cordis.patch.yml` for automated code reviews so `dsh` converges in 1–3 minutes instead of over-deliberating.
 - **Incremental re-review with `--session-id`**: keep 1 automated round as the default; if the user explicitly asks for a follow-up re-check of fixes on the same change, reuse `--session-id <id>` from the same `$REPO` root and send only the incremental diff.
 
 ## Triage and Convergence
