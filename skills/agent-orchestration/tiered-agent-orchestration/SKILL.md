@@ -1,13 +1,13 @@
 ---
 name: tiered-agent-orchestration
-description: Use when a coordinator agent plans or executes multi-file coding, refactoring, batch bug fixes, or high-risk changes and must decide whether to complete work locally (L1), delegate bounded implementation to an external coding CLI such as codex-delegate (L2), or add an independent read-only cross-model review such as dsh-review (L3), including batch sizing, isolation, and convergence guardrails.
+description: Use in Antigravity when planning or executing multi-file coding, refactoring, batch bug fixes, or high-risk changes and deciding whether to complete work locally (L1), delegate bounded implementation to an external coding CLI such as codex-delegate (L2), or add an independent read-only cross-model review such as dsh-review (L3), including batch sizing, isolation, and convergence guardrails. Designed for Antigravity as the coordinator; do not use from Codex to self-delegate.
 metadata:
-  short-description: Route and coordinate L1/L2/L3 multi-agent delivery
+  short-description: Route and coordinate L1/L2/L3 multi-agent delivery for Antigravity
 ---
 
-# Tiered Agent Orchestration
+# Tiered Agent Orchestration (for Antigravity)
 
-Use this skill when a coordinator agent acts as the control plane for software delivery—deciding which work stays local, which bounded coding tasks go to an external executor, and when to trigger an independent cross-model review gate.
+Use this skill in Antigravity when acting as the coordinator control plane for software delivery—deciding which work stays local, which bounded coding tasks go to an external executor, and when to trigger an independent cross-model review gate. (Do not invoke from Codex to self-delegate.)
 
 > The coordinator owns problem framing, batching, isolation, integration, independent verification, and user escalation; external executors and reviewers are bounded specialists, never autonomous loops.
 

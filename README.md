@@ -73,7 +73,7 @@ primary output belongs there.
 
 ### Agent Orchestration
 
-- [tiered-agent-orchestration](./skills/agent-orchestration/tiered-agent-orchestration/SKILL.md) - route and coordinate L1/L2/L3 multi-agent delivery across local execution, codex-delegate, and dsh-review.
+- [tiered-agent-orchestration](./skills/agent-orchestration/tiered-agent-orchestration/SKILL.md) - route and coordinate L1/L2/L3 multi-agent delivery for Antigravity across local execution, codex-delegate, and dsh-review.
 - [codex-delegate](./skills/agent-orchestration/codex-delegate/SKILL.md) - delegate bounded coding, refactoring, or test tasks to local OpenAI Codex CLI (`codex exec`).
 - [dsh-review](./skills/agent-orchestration/dsh-review/SKILL.md) - run independent, strictly read-only cross-model code review via local DeepSeek Harness (`dsh --profile headless`).
 
